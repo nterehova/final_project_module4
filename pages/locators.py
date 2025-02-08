@@ -7,6 +7,8 @@ from selenium.webdriver.support import expected_conditions as EC
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    
+    basket_button = (By.CSS_SELECTOR, ".basket-mini a[href*='basket']")
 
 #class MainPageLocators():
     #LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
@@ -30,3 +32,7 @@ class ProductPageLocators():
     #корзина в хэдере
     mini_cart_in_header = (By.XPATH, "//*[@id='default']/header/div[1]/div/div[2]")
 
+class BasketPageLocators():
+    basket_items_form = (By.CSS_SELECTOR, "form#basket_formset")
+    basket_empty_message = (By.XPATH, "//*[@id='content_inner']/p")
+    language_option = (By.CSS_SELECTOR, "select[name='language'] option[selected]")
