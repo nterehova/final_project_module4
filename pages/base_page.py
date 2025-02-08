@@ -76,3 +76,12 @@ class BasePage():
             return False
 
         return True
+    
+    def should_go_to_cart(self):
+        try:
+            basket_button = self.browser.find_element(*BasePageLocators.basket_button)
+            basket_button.click()
+        except NoSuchElementException:
+            print("Basket button is not found")
+            return False
+        return True
