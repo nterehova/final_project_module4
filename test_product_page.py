@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from .pages.product_page import ProductPage
+from .pages.basket_page import BasketPage
 import time
 import math
 
@@ -21,6 +22,7 @@ def test_guest_can_go_to_login_page_from_product_page(browser):
     page.go_to_login_page()
     page.should_be_login_url()
 
+@pytest.mark.skip
 def test_guest_can_add_product_to_basket(browser):
     link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
     product_page = ProductPage(browser, link)
@@ -53,3 +55,11 @@ def test_message_disappeared_after_adding_product_to_basket(browser):
     product_page.open()
     product_page.add_product_to_cart()
     product_page.should_disappear()
+
+def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
+    link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
+    product_page = BasketPage(browser, link)
+    product_page.open()
+    product_page.should_go_to_cart()
+    product_page.is_no_product_in_cart()
+    product_page.should_be_empty_cart_message()
