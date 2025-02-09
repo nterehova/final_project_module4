@@ -12,6 +12,7 @@ class ProductPage(BasePage):
     def add_product_to_cart(self):
         button = self.browser.find_element(*ProductPageLocators.add_to_cart_button)
         button.click()
+        #uncomment if you ran test with parametrize
         #self.solve_quiz_and_get_code()
 
     def should_be_message_about_added_product(self):
