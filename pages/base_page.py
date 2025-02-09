@@ -85,3 +85,6 @@ class BasePage():
             print("Basket button is not found")
             return False
         return True
+
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented, probably unauthorised user"
