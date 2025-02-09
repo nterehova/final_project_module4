@@ -7,7 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
-    
+    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
     basket_button = (By.CSS_SELECTOR, ".basket-mini a[href*='basket']")
 
 #class MainPageLocators():
@@ -16,6 +16,10 @@ class BasePageLocators():
 class LoginPageLocators():
     login_form = (By.CSS_SELECTOR, "form#login_form")
     register_form = (By.CSS_SELECTOR, "form#register_form")
+    reg_email_field = (By.CSS_SELECTOR,"input#id_registration-email")
+    reg_password_field = (By.CSS_SELECTOR, "input#id_registration-password1")
+    reg_confirm_password_field = (By.CSS_SELECTOR, "input#id_registration-password2")
+    register_button = (By.CSS_SELECTOR, "button[name='registration_submit']")
 
 class ProductPageLocators():
     add_to_cart_button = (By.CSS_SELECTOR, "button.btn-add-to-basket")
